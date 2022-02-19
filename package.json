@@ -1,0 +1,22 @@
+{
+  "name": "curso-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adviuriaraujo/curso-node.git"
+  },
+  "author": "adviuriaraujo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adviuriaraujo/curso-node/issues"
+  },
+  "homepage": "https://github.com/adviuriaraujo/curso-node#readme",
+  "dependencies": {
+    "chalk": "^5.0.0"
+  }
+}
