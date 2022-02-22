@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "dev"
+    "test": "dev",
+    "cli": "node cli.js ./arquivos/texto1.md"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/adviuriaraujo/curso-node#readme",
   "dependencies": {
+    "axios": "^0.26.0",
     "chalk": "^5.0.0"
   }
 }

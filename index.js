@@ -2,7 +2,7 @@ import chalk from "chalk"
 import fs from "fs"
 
 function trataErro(erro) {
-    throw new Error(chalk.red(erro))
+    throw new Error(chalk.red(erro.code, 'Não foi possível ler seu arquivo!'))
 }
 
 function extraiLinks(texto) {
@@ -12,27 +12,30 @@ function extraiLinks(texto) {
     while ((temp = regex.exec(texto) ) != null){
         arrayResultados.push({ [temp[1]] : temp[2] })
     }
-    return arrayResultados
+    
+    return arrayResultados.length === 0 ? 'Nenhum link encontrado!' : arrayResultados
 }
 
-async function pegaArquivo(path) {
+async function pegaArquivo(caminho) {
     const enconding = 'utf-8'
     try{
-        const texto = await fs.promises.readFile(path, enconding)
+        const texto = await fs.promises.readFile(caminho, enconding)
         //console.log(chalk.green(texto))
-        console.log(extraiLinks(texto))
+        return extraiLinks(texto)
     } catch(error){
         trataErro(error)
     }    
 }
 
 //FUNÇÃO ASSÍNCRONA COM THEN E CATCH
-//function pegaArquivo(path) {
+//function pegaArquivo(caminho) {
 //    const encoding = 'utf-8'
 //    fs.promises
-//    .readFile(path, encoding)
+//    .readFile(caminho, encoding)
 //    .then((texto) => console.log(chalk.green(texto)))
 //    .catch((erro) => trataErro(erro))
 //}
 
-pegaArquivo('./arquivos/texto1.md')
+//pegaArquivo('./arquivos/texto1.md')
+
+export default pegaArquivo
